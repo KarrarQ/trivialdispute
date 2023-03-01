@@ -21,7 +21,7 @@ class Form extends Component {
         <h2 className='add-question-text'>Add a New Question</h2>
         <div className='form-container'>
           <div className='question-container'>
-            <label className='label-form' for="question">Question: </label>
+            <label className='label-form' htmlFor="question">Question: </label>
             <input
               className='question-input'
               type='text'
@@ -33,7 +33,7 @@ class Form extends Component {
           </div>
 
           <div className='question-container'>
-          <label className='label-form' for="incorrect-1">Incorrect Answer 1: </label>
+          <label className='label-form' htmlFor="incorrect-1">Incorrect Answer 1: </label>
             <input
               className='question-input'
               type='text'
@@ -45,7 +45,7 @@ class Form extends Component {
           </div>
 
           <div className='question-container'>
-          <label className='label-form' for="incorrect-2">Incorrect Answer 2: </label>
+          <label className='label-form' htmlFor="incorrect-2">Incorrect Answer 2: </label>
             <input
               className='question-input'
               type='text'
@@ -57,7 +57,7 @@ class Form extends Component {
           </div>
 
           <div className='question-container'>
-          <label className='label-form' for="incorrect-3">Incorrect Answer 3: </label>
+          <label className='label-form' htmlFor="incorrect-3">Incorrect Answer 3: </label>
             <input
               className='question-input'
               type='text'
@@ -69,7 +69,7 @@ class Form extends Component {
           </div>
 
           <div className='question-container'>
-          <label className='label-form' for="correct">Correct Answer: </label>
+          <label className='label-form' htmlFor="correct">Correct Answer: </label>
             <input
               className='question-input'
               type='text'
