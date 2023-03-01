@@ -10,7 +10,7 @@ class App extends Component {
   }
   render() {
     return (
-      <h1>Trivia Genie</h1>
+      <h1>Trivial Dispute</h1>
     )
   }
 }
