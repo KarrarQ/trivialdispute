@@ -1,4 +1,5 @@
 import React from 'react';
+import CategoryCard from '../CategoryCard/CategoryCard'
 
 const TriviaContainer = () => {
   const categories = ['All Categories', 'Food and Drink', 'Geography', 'General knowledge', 'History', 'Art and Literature', 'Movies', 'Music', 'Science', 'Society and Culture', 'Sports and Leisure', 'User Generated Questions']
