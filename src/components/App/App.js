@@ -1,18 +1,28 @@
-import React, { Component } from 'react';
-import '../App/App.css'
+import React from 'react';
+import '../App/App.css';
+import TriviaContainer from '../TriviaContainer/TriviaContainer';
+import Nav from '../Nav/Nav';
+import TriviaGameView from '../TriviaGameView/TriviaGameView';
+import Form from '../Form/Form';
+import { Route, Switch } from 'react-router-dom';
 
-class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      triviaQuestions: []
-    }
-  }
-  render() {
-    return (
-      <h1>Trivia Genie</h1>
-    )
-  }
+const App = () => {
+  return (
+    <section className='App'>
+      <Switch>
+        <Route exact path="/">
+          <Nav location="home"/>
+          <TriviaContainer />
+        </Route>
+        <Route exact path='/form' render={({ match }) => {
+         return [<Nav location="form" key={match + '-nav'}/>, <Form key={match + '-trivia-form'}/>]
+        }} />
+        <Route exact path="/:category" render={({ match }) => {
+          console.log(match)
+          return [<Nav location="game" key={match + '-nav'}/>, <TriviaGameView category={match.params.category}  key={match + '-trivia-category'}/>]
+          }} />
+      </Switch>
+    </section>
+  )
 }
-
 export default App;
