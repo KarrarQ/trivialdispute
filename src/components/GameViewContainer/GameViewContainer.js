@@ -1,5 +1,4 @@
 import React from 'react';
-import { apiCalls } from '../../apiCalls'
 import QuestionCard from '../QuestionCard/QuestionCard';
 
 const GameViewContainer = ({ questions }) => {
