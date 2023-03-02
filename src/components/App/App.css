@@ -1,18 +1,28 @@
 .App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(77, 94, 105);
+  background-image: url(https://pro2-bar-s3-cdn-cf2.myportfolio.com/91b70d64-0e4f-4ba1-9d15-f71726bcefee/3b861286-cfd4-4743-83ce-4a4e398c23b1.gif?h=f3012916d473f9f456a291e496895cec);
+  width: 100%;
+  min-height: 100vh;
+  max-height: 100vh;
+  overflow-y: scroll;
+  background-repeat: no-repeat;
+  background-size: cover;
   text-align: center;
+  position: absolute;
 }
 
-.App-logo {
+/* .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
-
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
 }
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -23,11 +33,9 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-
 .App-link {
   color: #61dafb;
 }
-
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -35,4 +43,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */
