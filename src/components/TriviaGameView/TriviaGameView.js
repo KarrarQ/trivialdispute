@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { apiCalls } from '../../apiCalls'
 import GameViewContainer from '../GameViewContainer/GameViewContainer';
+import { shuffle } from '../../utils';
 import '../TriviaGameView/TriviaGameView.css'
 
 class TriviaGameView extends Component {
@@ -8,7 +9,9 @@ class TriviaGameView extends Component {
       super(props);
       this.state = {
         selectedCategory: [],
-        error: ''
+        currentIndex: 0,
+        error: '',
+        score: 0
       }
     }
   
@@ -17,10 +20,11 @@ class TriviaGameView extends Component {
       console.log('we mounted')
       const category = this.props.category;
       try {
-        const data = (category !== 'All Movies') ? await apiCalls.getQuestionsByCategory(category) : await apiCalls.getAllQuestions();
+        const data = (category !== 'All Categories') ? await apiCalls.getQuestionsByCategory(category) : await apiCalls.getAllQuestions();
+        console.log(data)
         let questions = data;
         console.log(questions)
-        this.setState({ selectedCategory: questions })
+        this.setState({ selectedCategory: questions, currentIndex: 1 })
       }
       catch (error) {
         this.setState({ error: error.message })
@@ -30,8 +34,10 @@ class TriviaGameView extends Component {
     render() {
         console.log(this.state.selectedCategory)
         return (
-          <section className='trivia-game-card'>
-            <GameViewContainer questions={this.state.selectedCategory}/>
+          <section className='trivia-game-view'>
+            <div className='trivia-game-card'>
+              <GameViewContainer questions={this.state.selectedCategory}/>
+            </div>
           </section>
         )
       }

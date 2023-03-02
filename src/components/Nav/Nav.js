@@ -12,7 +12,7 @@ const Nav = ( {location} ) => {
     return (
       <nav className="navbar">
         <Link className="logo-link" to="/">
-          <img className="logo" src={'https://pro2-bar-s3-cdn-cf2.myportfolio.com/91b70d64-0e4f-4ba1-9d15-f71726bcefee/3b861286-cfd4-4743-83ce-4a4e398c23b1.gif?h=f3012916d473f9f456a291e496895cec'} alt="Trivia Night logo"/>
+          <img className="logo" alt="Trivia Night logo"/>
         </Link>
         <div className='nav-directions'>
           {renderDirections}
