@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { apiCalls } from '../../apiCalls'
 import GameViewContainer from '../GameViewContainer/GameViewContainer';
-import './TriviaGameView.css'
+import '../TriviaGameView/TriviaGameView.css'
 
 class TriviaGameView extends Component {
     constructor(props) {
