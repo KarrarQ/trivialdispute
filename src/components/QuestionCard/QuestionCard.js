@@ -44,7 +44,7 @@ const QuestionCard = ({question, allQuestions, disabled, shuffledAnswers, correc
       <div className="answer-button-container">
       <button disabled={disabled} className="submit-answer-button" onClick={() => {
           console.log('clicked')
-          //handleNextQuestion(correctAnswer)
+          handleNextQuestion(correctAnswer)
       }}>Submit</button>
       </div>
     </section>
