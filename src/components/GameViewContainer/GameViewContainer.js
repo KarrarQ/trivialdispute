@@ -1,5 +1,6 @@
 import React from 'react';
 import QuestionCard from '../QuestionCard/QuestionCard';
+import './GameViewContainer.css'
 
 const GameViewContainer = ({ questions }) => {
   let i = 0;
