@@ -37,7 +37,7 @@ class Form extends Component {
       await apiCalls.postNewQuestion(newQuestion)
     } 
     catch(error) {
-      this.setState( {error: error.message} )
+      this.setState( {error: error} )
     }
     this.setState({
       posted: true
