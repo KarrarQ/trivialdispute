@@ -6,121 +6,127 @@ import ErrorPage from '../ErrorPage/ErrorPage';
 import '../TriviaGameView/TriviaGameView.css'
 
 class TriviaGameView extends Component {
-    constructor(props) {
-      super(props);
-      this.state = {
-        error: null,
-        currentIndex: 0,
-        score: 0,
-        userSelectedAnswer: null, 
-        correctAnswer: null,
-        shuffledAnswers: [],
-        currentQuestion: null,
-        allQuestions: [],
-        submitBtnDisabled: true
-      }
-    }
+	constructor(props) {
+		super(props)
+		this.state = {
+			error: null,
+			currentIndex: 0,
+			score: 0,
+			userSelectedAnswer: null, 
+			correctAnswer: null,
+			shuffledAnswers: [],
+			currentQuestion: null,
+			allQuestions: [],
+			submitBtnDisabled: true
+		}
+	}
   
-    async componentDidMount() {
-      let category = this.props.category;
-      if (category === 'User Generated Questions') {
-         category = 'User Generated Question';
-      }
-      let questions = []
-      try {
-        questions = (category !== 'All Categories') ? 
-          await apiCalls.getQuestionsByCategory(category) : 
-          await apiCalls.getAllCategories()
-      }
-      catch (error) {
-        this.setState({ error: error })
-        console.log(this.state)
-      }
-      this.startGame(questions)
-    }
+	async componentDidMount() {
+		let category = this.props.category
+		if (category === 'User Generated Questions') {
+			category = 'User Generated Question'
+		}
 
-    startGame = (questions) => {
-      const question = questions[this.state.currentIndex]
-      this.setState({ 
-        currentQuestion: question,
-        allQuestions: questions
-      })
-    }
-  
-    handleNextQuestion = (correctAnswer) => {
-      const { userSelectedAnswer, score } = this.state
-      const newIndex = this.state.currentIndex + 1
-      const nextQuestion = this.state.allQuestions[newIndex]
-      this.setState({ 
-        currentIndex: newIndex,
-        currentQuestion: nextQuestion,
-        shuffledAnswers: [],
-        submitBtnDisabled: true
-      })
-      if (userSelectedAnswer === correctAnswer) { 
-        this.setState ({
-          score: score + 1
-        });
-      }
-    }
-  
-    setAnswer = (answer, shuffledAnswers) => {
-      this.setState({
-        userSelectedAnswer: answer,
-        submitBtnDisabled: false,
-        shuffledAnswers: shuffledAnswers // set to ensure answers are not re-shuffled on every selection
-      })
-    }
+		let questions = []
+		try {
+			questions = (category !== 'All Categories') ? 
+				await apiCalls.getQuestionsByCategory(category) : 
+				await apiCalls.getAllCategories()
+		} catch (error) {
+			this.setState({ error: error })
+		}
 
-    render() {
-      if (this.state.error) {
-        return (
-        <ErrorPage message={this.state.error}/>
-        )
-      }
-      const currentQuestionNumber = this.state.currentIndex
-      if (!this.state.currentQuestion && currentQuestionNumber === 0) {
-        return ''
-      }
-      if (currentQuestionNumber > 0 && currentQuestionNumber === this.state.allQuestions.length) {
-        return (
-          <div>
-					  <h2 className='game-over-msg'>Game Over. You got {((this.state.score / this.state.allQuestions.length) * 100).toFixed(1)}% correct!</h2>
-            <h2 className='correct-answers-msg'>The correct answers for the quiz are:</h2>
-            <table className="options">
-              <tr>
-                <td>Number</td>
-                <th>Question</th>
-                <th>Answer</th>
-              </tr>
-						  {this.state.allQuestions.map((question, index) => (
-                <tr key={index}>
-                  <td>{index + 1}</td>
-                  <td>{question.question}</td>
-                  <td>{question.correct_answer}</td>
-                </tr>
-              ))}
-            </table>
-            <p className='navigate-home'>Click on the Trivia Night icon above to choose a new category!</p>
-          </div>
-        )
-      } 
-        return (
-          <section className='trivia-game-view'>
-            <div className='trivia-game-card'>
-              <GameViewContainer
-                currentQuestion={this.state.currentQuestion}
-                index={currentQuestionNumber}
-                totalQuestions={this.state.allQuestions.length}
-                shuffledAnswers={this.state.shuffledAnswers}
-                submitBtnDisabled={this.state.submitBtnDisabled} 
-                setAnswer={this.setAnswer}
-                handleNextQuestion={this.handleNextQuestion}
-            />
-            </div>
-          </section>
-        )
-      }
+		this.startGame(questions)
+	}
+
+	startGame = (questions) => {
+		const question = questions[this.state.currentIndex]
+		this.setState({ 
+			currentQuestion: question,
+			allQuestions: questions
+		})
+	}
+
+	handleNextQuestion = (correctAnswer) => {
+		const { userSelectedAnswer, score } = this.state
+		const newIndex = this.state.currentIndex + 1
+		const nextQuestion = this.state.allQuestions[newIndex]
+
+		this.setState({ 
+			currentIndex: newIndex,
+			currentQuestion: nextQuestion,
+			shuffledAnswers: [],
+			submitBtnDisabled: true
+		})
+
+		if (userSelectedAnswer === correctAnswer) { 
+			this.setState ({
+				score: score + 1
+			})
+		}
+	}
+
+	setAnswer = (answer, shuffledAnswers) => {
+		this.setState({
+			userSelectedAnswer: answer,
+			submitBtnDisabled: false,
+			shuffledAnswers: shuffledAnswers
+		})
+	}
+
+	render() {
+		if (this.state.error) {
+			return (
+				<ErrorPage message={this.state.error}/>
+			)
+		}
+
+		const currentQuestionNumber = this.state.currentIndex
+		if (!this.state.currentQuestion && currentQuestionNumber === 0) {
+			return ''
+		}
+
+		if (currentQuestionNumber > 0 && currentQuestionNumber === this.state.allQuestions.length) {
+			return (
+				<div>
+					<h2 className='game-over-msg'>Game Over. You got {((this.state.score / this.state.allQuestions.length) * 100).toFixed(1)}% correct!</h2>
+					<h2 className='correct-answers-msg'>The correct answers for the game are:</h2>
+					<table className="options">
+						<tr>
+							<td>Number</td>
+							<th>Question</th>
+							<th>Answer</th>
+						</tr>
+						{this.state.allQuestions.map((question, index) => (
+							<tr key={index}>
+								<td>{index + 1}</td>
+								<td>{question.question}</td>
+								<td>{question.correct_answer}</td>
+							</tr>
+						))}
+					</table>
+					<p className='navigate-home'>Click on the Trivia Night icon above to choose a new category!</p>
+				</div>
+			)
+		}
+
+		return (
+			<section className='trivia-game-view'>
+				<div className='trivia-game-card'>
+					<GameViewContainer
+						currentQuestion={this.state.currentQuestion}
+						index={currentQuestionNumber}
+						totalQuestions={this.state.allQuestions.length}
+						shuffledAnswers={this.state.shuffledAnswers}
+						submitBtnDisabled={this.state.submitBtnDisabled} 
+						setAnswer={this.setAnswer}
+						handleNextQuestion={this.handleNextQuestion}
+					/>
+				</div>
+			</section>
+		)
+	}
+
 }
-    
-export default TriviaGameView;
+
+export default TriviaGameView
