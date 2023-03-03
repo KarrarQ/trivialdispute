@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { apiCalls } from '../../apiCalls';
+import ErrorPage from '../ErrorPage/ErrorPage';
 import '../Form/Form.css'
 
 class Form extends Component {
@@ -54,15 +55,15 @@ class Form extends Component {
 
 
   render() {
-    if(this.state.error) {
+    if (this.state.error) {
       return (
-        <h1>{`${this.state.error}`}</h1>
+        <ErrorPage message={this.state.error}/>
       )
     }
     if (this.state.posted) {
       return (
         <div className="post-sucess">
-          <h1 className="message">{`Your question" ${this.state.question} was created successfully!`}</h1>
+          <h1 className="message">{`Your question: "${this.state.question}" was created successfully!`}</h1>
         </div>
       )
     }
