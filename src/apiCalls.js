@@ -3,14 +3,12 @@ export const apiCalls = {
 
     async getAllCategories() {
       let response = await fetch('http://localhost:3001/api/v1/questions/all')
-      handleResponse(response);
-      return await response.json();
+      return await handleResponse(response)
     },
   
     async getQuestionsByCategory(category) {
       let response = await fetch(`http://localhost:3001/api/v1/questions?category=${category}`)
-      handleResponse(response);
-      return await response.json()
+      return await handleResponse(response)
     },
   
     async postNewQuestion(question) {
@@ -21,8 +19,7 @@ export const apiCalls = {
           'Content-Type': 'application/json'
         }
       })
-      handleResponse(response);
-      return await response.json()
+      return await handleResponse(response)
     }
   
   }
