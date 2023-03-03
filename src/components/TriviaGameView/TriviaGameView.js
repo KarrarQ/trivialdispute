@@ -25,8 +25,9 @@ class TriviaGameView extends Component {
       if (category === 'User Generated Questions') {
          category = 'User Generated Question';
       }
+    
       try {
-        let data = (category !== 'All Categories') ? await apiCalls.getQuestionsByCategory(category) : await apiCalls.getAllCategories();        console.log(data)
+        let data = (category !== 'All Categories') ? await apiCalls.getQuestionsByCategory(category) : await apiCalls.getAllCategories(); 
         let questions = data;
         // questions = questions.splice(5, 3)
         this.setState({ selectedCategory: questions })

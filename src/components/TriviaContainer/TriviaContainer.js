@@ -12,7 +12,7 @@ const TriviaContainer = () => {
             categoryName ={category}
             key ={i++}
         />
-    </Link>
+            </Link>
   })
   return (
     <section className="trivia-container">
