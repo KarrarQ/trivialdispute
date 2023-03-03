@@ -16,8 +16,8 @@ const Nav = ( {location} ) => {
         </Link>
         <div className='nav-directions'>
           {renderDirections}
+          {navLink}
         </div>
-        {navLink}
       </nav>
     )
   }

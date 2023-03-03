@@ -19,7 +19,6 @@ const App = () => {
          return [<Nav location="form" key={match + '-nav'}/>, <Form key={match + '-trivia-form'}/>]
         }} />
         <Route exact path="/:category" render={({ match }) => {
-          console.log(match)
           return [<Nav location="game" key={match + '-nav'}/>, <TriviaGameView category={match.params.category}  key={match + '-trivia-category'}/>]
           }} />
         <Route>
