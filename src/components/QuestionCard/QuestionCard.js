@@ -13,12 +13,14 @@ const QuestionCard = ({question, allQuestions, disabled, shuffledAnswers, correc
       <div className="possible-answers-container">
         <div className="top-row-answers">
           <div className="top-left">
-          <input type="radio" id="possibleAnswer1" name="answer-button" value="possibleAnswer1" onClick={() => {
-            console.log('clicked')
-            checkAnswer(possibleAnswers[0], shuffledAnswers);
-          }}></input>
-          <label>{possibleAnswers[0]}</label>
+          <div className="radio-button">
+              <input type="radio" id="possibleAnswer1" name="answer-button" value="possibleAnswer1" onClick={() => {
+              console.log('clicked')
+              checkAnswer(possibleAnswers[0], shuffledAnswers);
+               }}></input>
+               <label>{possibleAnswers[0]}</label>
           </div>
+        </div>
           <div className="top-right">
             <div className="radio-button">
             <input type="radio" id="possibleAnswer2" name="answer-button" value="possibleAnswer2" onClick={() => {
@@ -30,18 +32,22 @@ const QuestionCard = ({question, allQuestions, disabled, shuffledAnswers, correc
         </div>
         <div className="bottom-row-answers">
          <div className="bottom-left">
-         <input type="radio" id="possibleAnswer3" name="answer-button" value="possibleAnswer3" onClick={() => {
-            checkAnswer(possibleAnswers[2], shuffledAnswers);
-          }}></input>
-          <label className="bottom-left">{possibleAnswers[2]}</label>
+         <div className="radio-button">
+            <input type="radio" id="possibleAnswer3" name="answer-button" value="possibleAnswer3" onClick={() => {
+              checkAnswer(possibleAnswers[2], shuffledAnswers);
+            }}></input>
+            <label className="bottom-left">{possibleAnswers[2]}</label>
           </div>
-          <div className="bottom-right">
-          <input type="radio" id="possibleAnswer4" name="answer-button" value="possibleAnswer4" onClick={() => {
-            checkAnswer(possibleAnswers[3], shuffledAnswers);
-          }}></input>
-          <label>{possibleAnswers[3]}</label>
+          </div>
+        <div className="bottom-right">
+          <div className="radio-button">
+            <input type="radio" id="possibleAnswer4" name="answer-button" value="possibleAnswer4" onClick={() => {
+              checkAnswer(possibleAnswers[3], shuffledAnswers);
+            }}></input>
+            <label>{possibleAnswers[3]}</label>
           </div>
         </div>
+      </div>
       </div>
       <div className="answer-button-container">
       <button disabled={disabled} className="submit-answer-button" onClick={() => {
