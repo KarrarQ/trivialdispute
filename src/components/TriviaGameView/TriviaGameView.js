@@ -25,8 +25,9 @@ class TriviaGameView extends Component {
       if (category === 'User Generated Questions') {
          category = 'User Generated Question';
       }
+    
       try {
-        let data = (category !== 'All Categories') ? await apiCalls.getQuestionsByCategory(category) : await apiCalls.getAllCategories();        console.log(data)
+        let data = (category !== 'All Categories') ? await apiCalls.getQuestionsByCategory(category) : await apiCalls.getAllCategories(); 
         let questions = data;
         // questions = questions.splice(5, 3)
         this.setState({ selectedCategory: questions })
@@ -107,8 +108,8 @@ class TriviaGameView extends Component {
       if (currentIndex === this.state.selectedCategory.length) {
         return (
           <div>
-            <h1>Game Over. You got {((this.state.score / this.state.selectedCategory.length) * 100).toFixed(1)}% correct!.</h1>
-            <h1>The correct answers for the quiz are:</h1>
+            <h1 className='game-over-msg'>Game Over. You got {((this.state.score / this.state.selectedCategory.length) * 100).toFixed(1)}% correct!.</h1>
+            <h1 className='correct-answers-msg'>The correct answers for the quiz are:</h1>
             <ul>
               {this.state.selectedCategory.map((question, index) => (
                 <h1 className='options'

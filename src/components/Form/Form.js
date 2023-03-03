@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { apiCalls } from '../../apiCalls';
 import '../Form/Form.css'
 
 class Form extends Component {
@@ -14,6 +15,22 @@ class Form extends Component {
   handleFormChange = event => {
     this.setState({ [event.target.name]: event.target.value });
   }
+
+  submitNewQuestion = async(event) => {
+    event.preventDefault(); 
+    const newQuestion = {
+      ...this.state
+    }
+    console.log(newQuestion)
+    await apiCalls.postNewQuestion(newQuestion)
+    // this.props.addIdea(newIdea); // using the addIdea method from App that we x`passed as a prop to Form
+    this.clearInputs(); // invoking the method I wrote below to reset the inputs
+  }
+
+  clearInputs = () => {
+    this.setState({ question: '', incorrectAnswers: [], correctAnswer: '' });
+  }
+
 
   render() {
     return (
@@ -38,7 +55,7 @@ class Form extends Component {
               className='question-input'
               type='text'
               placeholder='Incorrect Answer 1'
-              name='incorrect-1'
+              name='incorrectAnswers[0]'
               value={this.state.incorrectAnswers[0]}
               onChange={event => this.handleFormChange(event)}
             />
@@ -50,7 +67,7 @@ class Form extends Component {
               className='question-input'
               type='text'
               placeholder='Incorrect Answer 2'
-              name='incorrect-2'
+              name='incorrectAnswers[1]'
               value={this.state.incorrectAnswers[1]}
               onChange={event => this.handleFormChange(event)}
             />  
@@ -62,7 +79,7 @@ class Form extends Component {
               className='question-input'
               type='text'
               placeholder='Incorrect Answer 3'
-              name='incorrect-3'
+              name='incorrectAnswers[2]'
               value={this.state.incorrectAnswers[2]}
               onChange={event => this.handleFormChange(event)}
             />  
@@ -74,13 +91,13 @@ class Form extends Component {
               className='question-input'
               type='text'
               placeholder='Correct Answer'
-              name='correct'
-              value={this.state.correctAnswer}
+              name='correctAnswer'
+              defaultValue={this.state.correctAnswer}
               onChange={event => this.handleFormChange(event)}
             />  
           </div>
 
-          <button className='new-question-button'>SUBMIT</button>
+          <button className='new-question-button' onClick={event => this.submitNewQuestion(event)} >SUBMIT</button>
           </div>
       </form>
     )
