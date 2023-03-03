@@ -1,14 +1,15 @@
+import { handleResponse } from "./utils";
 export const apiCalls = {
 
     async getAllCategories() {
-      console.log('r we hittin dis')
       let response = await fetch('http://localhost:3001/api/v1/questions/all')
+      handleResponse(response);
       return await response.json();
     },
   
     async getQuestionsByCategory(category) {
-      console.log(category)
       let response = await fetch(`http://localhost:3001/api/v1/questions?category=${category}`)
+      handleResponse(response);
       return await response.json()
     },
   
@@ -20,6 +21,7 @@ export const apiCalls = {
           'Content-Type': 'application/json'
         }
       })
+      handleResponse(response);
       return await response.json()
     }
   

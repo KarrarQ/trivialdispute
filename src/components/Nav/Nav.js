@@ -11,8 +11,8 @@ const Nav = ( {location} ) => {
   
     return (
       <nav className="navbar">
-        <Link className="logo-link" to="/">
-          <img className="logo" alt="Trivia Night logo"/>
+        <Link className="title" to="/">
+          <h2>Trivial Dispute</h2>
         </Link>
         <div className='nav-directions'>
           {renderDirections}
