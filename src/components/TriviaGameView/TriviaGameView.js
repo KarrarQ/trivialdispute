@@ -30,7 +30,6 @@ class TriviaGameView extends Component {
     
       try {
         let questions = (category !== 'All Categories') ? await apiCalls.getQuestionsByCategory(category) : await apiCalls.getAllCategories();
-        console.log(questions)
         questions = questions.slice(0, 5)
 
         this.setState({ selectedCategory: questions })
@@ -56,8 +55,6 @@ class TriviaGameView extends Component {
     }
   
     handleNextQuestion = (correctAnswer) => {
-      console.log('handlenextq')
-      console.log(correctAnswer)
       const {userAnswer, score} = this.state
       this.setState({ currentIndex: this.state.currentIndex + 1 })
       if (userAnswer === correctAnswer) { 
@@ -69,10 +66,7 @@ class TriviaGameView extends Component {
     }
   
     componentDidUpdate(prevProps, prevState){
-      console.log(this.state)
-      console.log(prevProps)
-      console.log(prevState)
-      this.state.shuffledAnswers=[]
+      // this.state.shuffledAnswers=[]
       console.log(prevState.currentIndex)
       const{currentIndex} = this.state;
       console.log(currentIndex)
@@ -127,6 +121,7 @@ class TriviaGameView extends Component {
                 </h1>
               ))}
             </ul>
+            <p>Click on the Trivia Night icon above to choose a new category!</p>
           </div>
         )
       } 

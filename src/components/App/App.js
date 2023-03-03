@@ -5,6 +5,7 @@ import Nav from '../Nav/Nav';
 import TriviaGameView from '../TriviaGameView/TriviaGameView';
 import Form from '../Form/Form';
 import { Route, Switch } from 'react-router-dom';
+import ErrorPage from '../ErrorPage/ErrorPage';
 
 const App = () => {
   return (
@@ -21,6 +22,10 @@ const App = () => {
           console.log(match)
           return [<Nav location="game" key={match + '-nav'}/>, <TriviaGameView category={match.params.category}  key={match + '-trivia-category'}/>]
           }} />
+        <Route>
+          <Nav />
+          <ErrorPage />
+        </Route>
       </Switch>
     </section>
   )
