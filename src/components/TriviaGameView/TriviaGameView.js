@@ -66,20 +66,20 @@ class TriviaGameView extends Component {
     }
   
     componentDidUpdate(prevProps, prevState){
-      // this.state.shuffledAnswers=[]
+      this.state.shuffledAnswers=[]
       console.log(prevState.currentIndex)
-      const{currentIndex} = this.state;
+      const{ currentIndex } = this.state;
       console.log(currentIndex)
-      if (this.state.currentIndex !== prevState.currentIndex 
-        && !(currentIndex === this.state.selectedCategory.length)) {
+      if (currentIndex !== prevState.currentIndex 
+        && currentIndex !== this.state.selectedCategory.length) {
           let currentQuestion = this.state.selectedCategory[currentIndex];
-          console.log(currentQuestion)
-        this.setState(() => {
-          return {
-            disabled: true,
-            question: currentQuestion.question,
-            possibleAnswers: shuffle([...currentQuestion.incorrect_answers, currentQuestion.correct_answer]),
-            correctAnswer: currentQuestion.correct_answer         
+          this.setState(() => {
+            let testPossAnswers = shuffle([...currentQuestion.incorrect_answers, currentQuestion.correct_answer])
+            return {
+              disabled: true,
+              question: currentQuestion.question,
+              possibleAnswers: shuffle([...currentQuestion.incorrect_answers, currentQuestion.correct_answer]),
+              correctAnswer: currentQuestion.correct_answer         
           }
         });
       }
@@ -128,7 +128,17 @@ class TriviaGameView extends Component {
         return (
           <section className='trivia-game-view'>
             <div className='trivia-game-card'>
-              <GameViewContainer score={this.state.score} disabled={this.state.disabled} total={this.state.selectedCategory.length} finishGame={this.finishGame} checkAnswer={this.checkAnswer} handleNextQuestion={this.handleNextQuestion} questions={this.state.selectedCategory} shuffledAnswers={this.state.shuffledAnswers} index={currentIndex}/>
+              <GameViewContainer 
+                score={this.state.score} 
+                disabled={this.state.disabled}
+                total={this.state.selectedCategory.length} 
+                finishGame={this.finishGame} 
+                checkAnswer={this.checkAnswer} 
+                handleNextQuestion={this.handleNextQuestion} 
+                questions={this.state.selectedCategory} 
+                shuffledAnswers={this.state.shuffledAnswers} 
+                index={currentIndex}
+                />
             </div>
           </section>
         )
