@@ -77,4 +77,3 @@ QuestionCard.propTypes = {
 	submitBtnDisabled: PropTypes.bool,
 	handleNextQuestion: PropTypes.func
 }
-Footer
