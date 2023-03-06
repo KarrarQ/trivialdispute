@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types'
 import '../Nav/Nav.css'
 
 const Nav = ( {location} ) => {
@@ -27,3 +28,7 @@ const Nav = ( {location} ) => {
 
 
 export default Nav;
+
+Nav.propTypes = {
+	location: PropTypes.string
+}

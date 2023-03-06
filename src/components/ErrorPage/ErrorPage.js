@@ -1,5 +1,6 @@
 import React from 'react';
 import '../ErrorPage/ErrorPage.css'
+import PropTypes from 'prop-types'
 
 const ErrorPage = (props) => {
 	let error
@@ -16,3 +17,7 @@ const ErrorPage = (props) => {
 }
 
 export default ErrorPage
+
+ErrorPage.propTypes = {
+	message: PropTypes.object
+}

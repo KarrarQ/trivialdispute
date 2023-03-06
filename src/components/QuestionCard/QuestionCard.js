@@ -1,5 +1,6 @@
 import React from "react";
 import { shuffle } from "../../utils";
+import PropTypes from 'prop-types'
 import '../QuestionCard/QuestionCard.css'
 
 const QuestionCard = (props) => {
@@ -66,3 +67,14 @@ const QuestionCard = (props) => {
 }
 
 export default QuestionCard
+
+QuestionCard.propTypes = {
+	currentQuestion: PropTypes.object,
+	shuffledAnswers: PropTypes.array,
+	index: PropTypes.number,
+	totalQuestions: PropTypes.number,
+	setAnswer: PropTypes.func, 
+	submitBtnDisabled: PropTypes.bool,
+	handleNextQuestion: PropTypes.func
+}
+Footer
