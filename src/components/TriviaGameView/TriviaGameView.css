@@ -1,21 +1,40 @@
 .trivia-game-view { 
-    display: flex;
-    background-size: auto;
-  }
-  
-  .trivia-game-card { 
-    box-sizing: border-box;
-    border: 3px solid black;
-    padding: 10px;
-    height: 40%;
-    width: 40%;
-  }
+  display: flex;
+  background-size: auto;
+}
+
+/* .trivia-game-card { 
+  box-sizing: border-box;
+  border: 3px solid black;
+  padding: 10px;
+  height: 40%;
+  width: 40%;
+} */
 
 .game-over-msg, 
 .correct-answers-msg,
 .options,
 .navigate-home {
-  color:white; 
+  color:rgb(255, 255, 255); 
   font-size: 24px;
+  font-weight: bold;
+}
+
+table, th, td {
+  border: 3px solid;
+  padding: 5px;
+}
+
+@media screen and (min-width: 100px) and (max-width: 480px) {
+  
+  .game-over-msg, 
+  .correct-answers-msg,
+  .navigate-home {
+    margin: 5%;
+  }
+
+  table {
+    margin: 3%;
+  }
 
 }

@@ -7,13 +7,15 @@ const Nav = ( {location} ) => {
   if (location === 'home') {
     navLink = <Link className="form-link" to="/form"><h2>Add a New Question</h2></Link>
   }
-  const renderDirections = location === 'home' ? <h3 className='directions'>Please choose a category or click "All Categories"</h3> : null;
+  const renderDirections = location === 'home' 
   
     return (
       <nav className="navbar">
-        <Link className="title" to="/">
-          <h2>Trivial Dispute</h2>
-        </Link>
+        <div>
+          <Link className="title" to="/">
+            <h2>Trivial Dispute</h2>
+          </Link>
+        </div>
         <div className='nav-directions'>
           {renderDirections}
           {navLink}
