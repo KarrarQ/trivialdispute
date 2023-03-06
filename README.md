@@ -2,7 +2,7 @@
 
 Welcome to Trivial Dispute--your go-to application to test your knowledge on a variety of subjects. Not ready to make your grand debut at the brewery trivia night? You're in luck--Trivial Dispute will help hone and broaden your knowledge skills to prepare you for your future as a trivia champion!
 
-Deployed Application here: [Trivial Dispute](https:)
+Deployed Application here: [Trivial Dispute](https://trivialdispute.vercel.app/)
 
 
 ## Overview <a name="overview"></a>
