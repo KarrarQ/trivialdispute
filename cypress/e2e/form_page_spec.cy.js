@@ -1,4 +1,4 @@
-describe('Trivia Night form page user flow', () => {
+describe('Trivial Despute form page user flow', () => {
   
 	it('should update input values as form is filled out', () => {
 		cy.visit('http://localhost:3000/form')

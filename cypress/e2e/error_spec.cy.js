@@ -1,4 +1,4 @@
-describe('Trivia Night error page user flow', () => {
+describe('Trivia Dispute error page user flow', () => {
 
 	it('should display error when visiting a bad link', () => {
 		cy.intercept('GET', 'http://localhost:3001/api/v1/questions?category=4823483290434903', {statusCode: 404})
@@ -9,13 +9,6 @@ describe('Trivia Night error page user flow', () => {
 			expect(loc.href).to.eq('http://localhost:3000/')
 		})
 	})
-  
-	// it('should show error when loading page is unavailable', () => {
-	// 	cy.intercept('GET', 'http://localhost:3001/api/v1/questions?category=istory', {statusCode: 500})
-	// 	cy.visit('http://localhost:3000/History')
-	// 		.get('.error').contains('Sorry, there has been an error: ')
-	// 		.get('.message').contains('500 Internal Server Error: Unable to load content')
-	// })
 
 	it('should display error when user tries to submit duplicate question', () => {
 		cy.intercept('POST', 'http://localhost:3001/api/v1/questions',  

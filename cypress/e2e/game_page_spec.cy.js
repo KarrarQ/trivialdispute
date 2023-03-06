@@ -1,4 +1,4 @@
-describe('Trivia game user flow', () => {
+describe('Trivia Dispute user flow', () => {
 
 	it('should display current question card and allow user to submit checked answer ', () => {
 		cy.intercept('http://localhost:3001/api/v1/questions/all', { fixture: 'triviaQuestions.json' })
