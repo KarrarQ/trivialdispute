@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { apiCalls } from '../../apiCalls'
 import GameViewContainer from '../GameViewContainer/GameViewContainer';
-
+import PropTypes from 'prop-types'
 import ErrorPage from '../ErrorPage/ErrorPage';
 import '../TriviaGameView/TriviaGameView.css'
 
@@ -130,3 +130,7 @@ class TriviaGameView extends Component {
 }
 
 export default TriviaGameView
+
+TriviaGameView.propTypes = {
+	category: PropTypes.string
+}

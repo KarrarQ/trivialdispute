@@ -1,5 +1,6 @@
 import React from 'react';
 import QuestionCard from '../QuestionCard/QuestionCard';
+import PropTypes from 'prop-types'
 import './GameViewContainer.css'
 
 const GameViewContainer = (props) => {
@@ -22,3 +23,14 @@ const GameViewContainer = (props) => {
 }
 
 export default GameViewContainer;
+
+
+GameViewContainer.propTypes = {
+	index: PropTypes.number,
+	currentQuestion: PropTypes.object,
+	totalQuestions: PropTypes.number,
+	shuffledAnswers: PropTypes.array,
+	submitBtnDisabled: PropTypes.bool,
+	setAnswer: PropTypes.func,
+	handleNextQuestion: PropTypes.func
+}
