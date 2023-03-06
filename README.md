@@ -19,6 +19,7 @@ This project is our end-of-mod Showcase Project, so I thought it was important t
 
 - Trivia Questions API: 
     - GitHub: [Trivia Questions API](https://github.com/KarrarQ/trivia-api)
+    - Heroku: [Trivia Night API](https://trival-dispute-db.herokuapp.com/api/v1/questions/all)
 
 ## Installation Instructions <a name="installationInstructions"></a>
 
