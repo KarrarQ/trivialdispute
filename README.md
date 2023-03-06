@@ -1,70 +1,117 @@
-# Getting Started with Create React App
+# Trivial Disputee
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to Trivial Dispute--your go-to application to test your knowledge on a variety of subjects. Not ready to make your grand debut at the brewery trivia night? You're in luck--Trivial Dispute will help hone and broaden your knowledge skills to prepare you for your future as a trivia champion!
 
-## Available Scripts
+Deployed Application here: [Trivial Dispute](https:)
 
-In the project directory, you can run:
 
-### `npm start`
+## Overview <a name="overview"></a>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Trivial Dispute is a Mod 3 project at the Turing School of Software and Design that was built with `create-react-app` and tested using Cypress. React, React Router and data pulled from a backend server I created were utilized to display an assortment of different trivia catergories on page load. The user can select a category by clicking on the button with its respective name. The user is then allowed to begin the trivia game (20 questions). The user may also add a new question to the trivia database under the category "User Generated Questions". They may then click on that category on the landing page to see their own question appear in the trivia questions (once there are more than 20 questions in this category, the user may not see their question because they are being shuffled on each API call).  
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+I was given a 6 day timeframe to create the frontend and backend for this project. I wanted to create a backend for this project for two reasons: 
+1. to gain more experience with servers/databases <br>
+2. the original API was very slow and timed out quite a bit <br>
 
-### `npm test`
+This project is our end-of-mod Showcase Project, so I thought it was important to push myself with technologies such as Express.js, Node.js, Knex.js and PostgreSQL. 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Project Spec here: [Showcase](https://frontend.turing.edu/projects/module-3/showcase.html)
 
-### `npm run build`
+- Trivia Questions API: 
+    - GitHub: [Trivia Questions API](https://github.com/KarrarQ/trivia-api)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Installation Instructions <a name="installationInstructions"></a>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Clone down [this repository](https://github.com/KarrarQ/trivialdispute)
+2. Run `npm install`
+3. Run `npm start` in your terminal
+4. Go to http://localhost:3000/ and you should see the website
+5. Enter `control + c` in your terminal to stop the server at any time
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Project Goals <a name="projectGoals"></a>
 
-### `npm run eject`
+- Continue to gain competency with React fundamentals, Router and Cypress testing
+- Practice building a server in Express 
+- Successfully populate a PostgreSQL database using Knex query builder
+- Learn how to deploy both frontend and backend on Heroku 
+- Gain an understanding of what is it like to create both the frontend and the backend of an application
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Directions and Features <a name="directions"></a>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Choose a trivia category out of twelve options (ten specific categories, one user generated questions category, or 'All Categories' to get questions from all of the categories). 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Once a user clicks on a category, they are presented with a trivia game featuring 20 questions from their chosen category.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Once the game is over, the user is able see their final score(percentage) and see a list of correct answers.
 
-## Learn More
+If the user would like to add their own question to the database, they can click on the 'Add a New Question' button which will lead them to a form that they can fill out with their own question and answers(both correct and incorrect[3]). They will get a message saying that their question was submitted successfully once they click the 'submit' button (if there are no errors).
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+They can then choose the category 'User Generated Questions' on the landing page to see their own test question in the game: 
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Code Architecture <a name="codeArchitecture"></a>
 
-### Code Splitting
+The React architecture is based on two class components (TriviaGameView.js, Form.js) and seven functional components (App.js, Nav.js, ErrorPage.js, GameViewContainer.js, TriviaContainer.js, CategoryCard.js, QuestionCard.js). The class components hold state and are in charge of the network requests, while the functional components render information passed down as props.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Technologies Used <a name="techUsed"></a>
 
-### Analyzing the Bundle Size
+### Frontend Technologies
+- React
+- React Router
+- Javascript
+- CSS3
+- HTML5
+- Fetch API
+- webpack
+- PropTypes
+- NPM
+- Cypress
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Backend Technologies
 
-### Making a Progressive Web App
+- Express
+- PostgreSQL
+- Knex.js
+- JavaScript
+- Node.js
+- Node Fetch
+- PgAdmin4
+- Heroku
+- Postman
+- NPM
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Testing <a name="testing"></a>
 
-### Advanced Configuration
+Cypress was used for E2E and integration testing. To test the application: run `npm run cypress` and you will have a window open that gives you the ability to click on each test and see whether they pass. Make sure you've run `npm start` in a separate terminal tab before you begin the testing. 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Project Challanges <a name="projectChallanges"></a>
 
-### Deployment
+- Some challenging aspects of this project were:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+    - Connecting Express server to PostgresSQL database using Knex
+    - Deploying app using Heroku Postgres
+    - Managing state without hooks or Contect API 
 
-### `npm run build` fails to minify
+This project was the most challanging project I've experienced to date--I'm still new to PostgreSQL and Knex so there were often hiccups when I was implementing those technologies. The [source API](https://trivia.willfry.co.uk/) was also very slow and it took a lot of time to even write the files to my local machine (and that's when it didn't timeout mid-download!). I also struggled with the complexities of a more complicated React architecture and wish that I would have had more time to implement hooks and GSM with the Context API.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Project Wins <a name="projectWins"></a>
+
+- Created a fully funtional MVP with time scope of 6 days
+- Continued to build a strong understanding of React framework 
+- Successfully built an API with database by self-teaching Express, PostgreSQL and Knex. 
+- Completed a thorough project plan and wireframe, which kept my project on track 
+- Implemented React Router for a multi-page UX
+- Continued to gain competency with Cypress E2E testing framework
+- Utilized typechecking with PropTypes
+
+## Future Iterations <a name="futureIterations"></a>
+
+- A login page with authorization for users so that they could keep track of their progress as a trivia master!
+- Add responsive design so users can play on their phone
+- Would like to implement GSM and hooks 
+- Would like to have a hall of fame page for high scorers
+- An option to choose the amount of questions you want to be tested on
+- WebSockets to have users connect and play against each other
+
+## Author
+
+This project was bootstrapped with Create React App
