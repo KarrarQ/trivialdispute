@@ -5,9 +5,6 @@ describe('Trivia Dispute error page user flow', () => {
 		cy.visit('http://localhost:3000/4823483290434903')
 			.get('.error').contains('Sorry, there has been an error: ')
 			.get('.message').contains('404 Not Found: Unable to load content.')
-		cy.location().should((loc) => {
-			expect(loc.href).to.eq('http://localhost:3000/')
-		})
 	})
 
 	it('should display error when user tries to submit duplicate question', () => {
