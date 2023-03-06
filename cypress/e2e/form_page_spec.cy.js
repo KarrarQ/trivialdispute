@@ -10,7 +10,7 @@ describe('Trivial Despute form page user flow', () => {
 	})
   
 	it('should successfully post question based on user input', () => {
-		cy.intercept('POST', 'https://trivia-night-api-2110.herokuapp.com/api/v1/questions',  
+		cy.intercept('POST', 'https://trival-dispute-db.herokuapp.com/api/v1/questions',  
 			{
 				statusCode: 201,
 				body: {
